@@ -99,9 +99,7 @@ def process_motif_profits(algorithm_results, motif_file, threshold):
         distributions[(new_result["Model"], new_result["Budget"])] = motif_profits
         final_results.append(new_result)
 
-    # The full per-simulation distributions can't live in Excel (a single cell
-    # would be a ~10k-value string, past Excel's 32,767-char limit), so persist
-    # them separately for plotting/analysis.
+    
     if distributions:
         joblib.dump(distributions,
                     f"Motif_Profits_Threshold{threshold}.pkl", compress=3)
