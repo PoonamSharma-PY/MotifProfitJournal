@@ -36,7 +36,7 @@ def main(which):
                   [("Profit", "^", "Profit"),
                    ("Avg_Activated_Nodes", "o", "Avg Activated Nodes")])
 
-    cfg = pc.Config()                 # tweak knobs here, e.g. cfg.random_seed = 42
+    cfg = pc.Config()                 
     t0 = time.time()
 
     results = getattr(algo_module, run_attr)(cfg)
