@@ -1,20 +1,14 @@
 """pipeline_common.py
 ====================
 
-Everything that is IDENTICAL across the five baselines (Random, HighDegree,
-CELF, Greedy, RIS) lives here. Each algorithm file only has to answer one
-question: "given a graph and a budget, which seed set do I pick?"  Everything
-else -- loading data, building matrices, the 10,000-simulation evaluation,
-seeding, checkpointing, writing Excel, motif processing, plotting -- is shared.
-
+Everything that is IDENTICAL across the five baselines (Random, HighDegree, CELF, Greedy, RIS) lives here. Each algorithm file only has to answer one question: "given a graph and a budget, which seed set do I pick?"  Everything
+else -- loading data, building matrices, the 10,000-simulation evaluation, seeding, checkpointing, writing Excel, motif processing, plotting -- is shared.
 The contract each algorithm implements is a single function:
 
     def select_seeds(ctx) -> (seed_set, seed_cost, extra_scalars)
 
-where `ctx` (a SelectionContext) hands the algorithm the graph, budget, costs,
-benefits, the adjacency matrices, and a couple of helpers. `extra_scalars` is a
-dict of any algorithm-specific numbers to record (RIS uses it for KPT/Theta;
-everyone else returns {}).
+where `ctx` (a SelectionContext) hands the algorithm the graph, budget, costs, benefits, the adjacency matrices, and a couple of helpers. `extra_scalars` is a
+dict of any algorithm-specific numbers to record (RIS uses it for KPT/Theta; everyone else returns {}).
 """
 
 import os
