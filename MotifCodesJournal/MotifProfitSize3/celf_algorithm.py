@@ -1,9 +1,6 @@
 """CELF lazy-greedy on the profit-per-cost ratio.
 
-Only the selection is here; the benefit estimator, seeding, evaluation and I/O
-all come from pipeline_common. ctx.benefit_of(S) returns a cached, seed-stable
-expected benefit, so the marginal gain is derived without any separate cache
-(this is what avoids the old "two values under one key" collision).
+
 """
 import heapq
 import pipeline_common as pc
